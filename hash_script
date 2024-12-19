@@ -1,0 +1,11 @@
+#!/bin/bash
+# Script to generate SHA-256 hash for a 4-digit integer
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <4-digit-integer>"
+    exit 1
+fi
+
+echo -n "$1" | sha256sum | awk '{print $1}' > hash_output.txt
+echo "Hash saved to hash_output.txt"
+
